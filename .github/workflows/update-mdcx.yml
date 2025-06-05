@@ -1,0 +1,49 @@
+name: Auto update mdcx manifest
+
+on:
+  schedule:
+    - cron: "0 2 * * 1"
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Fetch latest release info
+        id: latest
+        run: |
+          API="https://api.github.com/repos/sqzw-x/mdcx/releases/latest"
+          DATA=$(curl -s $API)
+
+          # 提取 tag 和文件名
+          VERSION=$(echo "$DATA" | jq -r .tag_name)
+          ASSET_URL=$(echo "$DATA" | jq -r '.assets[] | select(.name | test("windows-x86_64.*\\.exe$")) | .browser_download_url')
+          FILENAME=$(basename "$ASSET_URL")
+
+          # 提取 URL 和 version
+          echo "tag=$VERSION" >> $GITHUB_OUTPUT
+          echo "filename=$FILENAME" >> $GITHUB_OUTPUT
+          echo "dl_url=https://github.com/sqzw-x/mdcx/releases/download/$VERSION/$FILENAME" >> $GITHUB_OUTPUT
+
+      - name: Update manifest
+        run: |
+          FILE=bucket/mdcx.json
+          VERSION="${{ steps.latest.outputs.tag }}"
+          URL="${{ steps.latest.outputs.dl_url }}"
+
+          # 更新 JSON
+          jq --arg version "$VERSION" --arg url "$URL" '
+            .version = $version |
+            .architecture."64bit".url = $url
+          ' "$FILE" > tmp && mv tmp "$FILE"
+
+      - name: Commit changes
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@users.noreply.github.com
+          git add bucket/mdcx.json
+          git commit -m "mdcx: Update to ${{ steps.latest.outputs.tag }}" || echo "No changes"
+          git push
