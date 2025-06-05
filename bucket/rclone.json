@@ -53,9 +53,7 @@
     },
     "bin": "rclone.exe",
     "persist": "rclone.conf",
-    "checkver": {
-        "url": "https://api.github.com/wiserain/rclone/releases/latest"
-    },
+    "checkver": "github",
     "autoupdate": {
         "architecture": {
             "64bit": {
