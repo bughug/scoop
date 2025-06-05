@@ -17,6 +17,11 @@ This repository (`bughug/scoop`) provides a collection of Scoop manifests.
     ```
     (Replace `<app-name>` with the manifest name from the `bucket` directory.)
 
+3.  **Remove the Bucket:**
+    ```powershell
+    scoop bucket rm bughug
+    ```
+
 ## Contributions
 
 Suggestions and issue reports are welcome via GitHub Issues.

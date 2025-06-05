@@ -17,6 +17,10 @@
     ```
     (请将 `<应用名称>` 替换为 `bucket` 目录中的应用清单名称。)
 
+3.  **移除存储桶:**
+    ```powershell
+    scoop bucket rm bughug
+    ```
 
 ## 贡献
 
