@@ -20,6 +20,7 @@
         "regex": "aardio v([\\d\\.]+)"
     },
     "autoupdate": {
+        "note": "https://d.aardio.com/ide/check/",
         "url": "https://d.aardio.com/ide/aardio.7z"
     }
 }
