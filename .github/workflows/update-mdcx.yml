@@ -2,12 +2,13 @@ name: Auto update mdcx manifest
 
 on:
   schedule:
-    - cron: "0 2 * * 1"
+    - cron: "0 2 * * 1"  # 每周一 02:00 UTC
   workflow_dispatch:
 
 jobs:
   update:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -18,26 +19,38 @@ jobs:
           API="https://api.github.com/repos/sqzw-x/mdcx/releases/latest"
           DATA=$(curl -s $API)
 
-          # 提取 tag 和文件名
           VERSION=$(echo "$DATA" | jq -r .tag_name)
-          ASSET_URL=$(echo "$DATA" | jq -r '.assets[] | select(.name | test("windows-x86_64.*\\.exe$")) | .browser_download_url')
-          FILENAME=$(basename "$ASSET_URL")
 
-          # 提取 URL 和 version
+          # 获取符合 windows-x86_64 的 exe 下载地址
+          ASSET=$(echo "$DATA" | jq -r '.assets[] | select(.name | test("windows-x86_64.*\\.exe$"))')
+          FILENAME=$(echo "$ASSET" | jq -r .name)
+          ASSET_URL=$(echo "$ASSET" | jq -r .browser_download_url)
+
           echo "tag=$VERSION" >> $GITHUB_OUTPUT
           echo "filename=$FILENAME" >> $GITHUB_OUTPUT
-          echo "dl_url=https://github.com/sqzw-x/mdcx/releases/download/$VERSION/$FILENAME" >> $GITHUB_OUTPUT
+          echo "dl_url=$ASSET_URL" >> $GITHUB_OUTPUT
+
+      - name: Compute hash
+        id: hash
+        run: |
+          curl -L "${{ steps.latest.outputs.dl_url }}" -o mdcx.exe
+          HASH=$(sha256sum mdcx.exe | awk '{print $1}')
+          echo "hash=$HASH" >> $GITHUB_OUTPUT
 
       - name: Update manifest
         run: |
           FILE=bucket/mdcx.json
           VERSION="${{ steps.latest.outputs.tag }}"
           URL="${{ steps.latest.outputs.dl_url }}"
+          HASH="${{ steps.hash.outputs.hash }}"
 
-          # 更新 JSON
-          jq --arg version "$VERSION" --arg url "$URL" '
+          jq --arg version "$VERSION" \
+             --arg url "$URL" \
+             --arg hash "$HASH" \
+          '
             .version = $version |
-            .architecture."64bit".url = $url
+            .architecture."64bit".url = $url |
+            .architecture."64bit".hash = $hash
           ' "$FILE" > tmp && mv tmp "$FILE"
 
       - name: Commit changes
@@ -45,5 +58,5 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@users.noreply.github.com
           git add bucket/mdcx.json
-          git commit -m "mdcx: Update to ${{ steps.latest.outputs.tag }}" || echo "No changes"
+          git commit -m "mdcx: update to ${{ steps.latest.outputs.tag }}" || echo "No changes to commit"
           git push
