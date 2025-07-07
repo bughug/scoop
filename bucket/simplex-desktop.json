@@ -11,8 +11,8 @@
     },
     "shortcuts": [
         [
-            "SimpleX.exe",
-            "SimpleX Desktop"
+            "SimpleX\\SimpleX.exe",
+            "SimpleX"
         ]
     ],
     "post_install": [
