@@ -1,11 +1,11 @@
 {
-    "version": "0.27.8-patch.1",
+    "version": "0.28.0",
     "description": "Revive unavailable songs for Netease Cloud Music (Refactored & Enhanced version)",
     "homepage": "https://github.com/UnblockNeteaseMusic/server",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/UnblockNeteaseMusic/server/releases/download/v0.27.8-patch.1/unblockneteasemusic-win-x64.exe",
+            "url": "https://github.com/UnblockNeteaseMusic/server/releases/download/v0.28.0/unblockneteasemusic-win-x64.exe",
             "bin": "unblockneteasemusic-win-x64.exe",
             "shortcuts": [
                 [
