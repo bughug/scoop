@@ -16,10 +16,6 @@
             "OpenCode Desktop"
         ]
     ],
-    "persist": [
-        ".config",
-        ".local"
-    ],
     "checkver": "github",
     "autoupdate": {
         "architecture": {

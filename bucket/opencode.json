@@ -10,9 +10,11 @@
         }
     },
     "bin": "opencode.exe",
-    "persist": [
-        ".config",
-        ".local"
+    "shortcuts": [
+        [
+            "opencode.exe",
+            "OpenCode"
+        ]
     ],
     "checkver": "github",
     "autoupdate": {
