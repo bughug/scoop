@@ -1,18 +1,21 @@
 {
     "version": "1.1.15",
-    "description": "开源 AI 编程助手 (桌面版)",
+    "description": "AI coding agent, built for the terminal.",
     "homepage": "https://github.com/anomalyco/opencode",
-    "license": "Apache-2.0",
+    "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/anomalyco/opencode/releases/download/v1.1.15/opencode-desktop-windows-x64.exe#/opencode-desktop.exe",
+            "url": "https://github.com/anomalyco/opencode/releases/download/v1.1.15/opencode-desktop-windows-x64.exe#/dl.7z",
             "hash": "6a9d54e01903f359c22cd0c71336c33fc42aae7f816d999403a69f913b5b8731"
         }
     },
-    "bin": "opencode-desktop.exe",
+    "bin": [
+        "OpenCode.exe",
+        "opencode-cli.exe"
+    ],
     "shortcuts": [
         [
-            "opencode-desktop.exe",
+            "OpenCode.exe",
             "OpenCode Desktop"
         ]
     ],
@@ -20,7 +23,7 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/anomalyco/opencode/releases/download/v$version/opencode-desktop-windows-x64.exe#/opencode-desktop.exe"
+                "url": "https://github.com/anomalyco/opencode/releases/download/v$version/opencode-desktop-windows-x64.exe#/dl.7z"
             }
         }
     }
