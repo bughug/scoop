@@ -17,6 +17,10 @@
         [
             "OpenCode.exe",
             "OpenCode Desktop"
+        ],
+        [
+            "opencode-cli.exe",
+            "OpenCode CLI"
         ]
     ],
     "checkver": "github",
