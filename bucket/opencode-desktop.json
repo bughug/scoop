@@ -9,18 +9,22 @@
             "hash": "9a567a4c128a3c8b05bdeadb2ae950d3253a9a6946427b50a3ad7a4050913004"
         }
     },
+    "pre_install": [
+        "Rename-Item \"$dir\\OpenCode.exe\" \"opencode-desktop.exe\"",
+        "Rename-Item \"$dir\\opencode-cli.exe\" \"opencode.exe\""
+    ],
     "bin": [
-        "OpenCode.exe",
-        "opencode-cli.exe"
+        "opencode-desktop.exe",
+        "opencode.exe"
     ],
     "shortcuts": [
         [
-            "OpenCode.exe",
+            "opencode-desktop.exe",
             "OpenCode Desktop"
         ],
         [
-            "opencode-cli.exe",
-            "OpenCode CLI"
+            "opencode.exe",
+            "OpenCode"
         ]
     ],
     "checkver": "github",
