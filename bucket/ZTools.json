@@ -4,6 +4,7 @@
   "homepage": "https://github.com/ZToolsCenter/ZTools",
   "license": "MIT",
   "url": "https://github.com/ZToolsCenter/ZTools/releases/download/v2.4.1/ZTools-2.4.1-win-x64.zip",
+  "hash": "f1f5e027d36dbbe5261e4e594bbc2c717d20d3960de6feb5748b67cd2bb83f81",
   "bin": "ZTools.exe",
   "shortcuts": [
     [
