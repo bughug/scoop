@@ -5,7 +5,10 @@
     "license": "MIT",
     "url": "https://github.com/diegosouzapw/OmniRoute/releases/download/v3.8.25/OmniRoute.3.8.25.exe#/dl.7z",
     "hash": "a6d309fedb67c73b81c7babe1c533bdd4950342ddca05589aafcadf481d326ca",
-    "bin": "OmniRoute.exe",
+    "pre_install": [
+        "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-64.7z\" \"$dir\"",
+        "Remove-Item \"$dir\\`$PLUGINSDIR\" -Force -Recurse"
+    ],
     "shortcuts": [
         [
             "OmniRoute.exe",
