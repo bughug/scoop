@@ -10,6 +10,7 @@
         }
     },
     "bin": "sub2api.exe",
+    "pre_install": "if (!(Test-Path \"$persist_dir\\config.yaml\")) { Copy-Item \"$dir\\deploy\\config.example.yaml\" \"$dir\\config.yaml\" }",
     "persist": [
         "data",
         "config.yaml"
