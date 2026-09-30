@@ -1,23 +1,23 @@
 {
-    "version": "1.70.3-253",
+    "version": "1.75.1-332",
     "description": "Rclone(wiserain) - Sync files and directories to and from multiple cloud / FTP / HTTP hosters.",
     "homepage": "https://github.com/wiserain/rclone",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/wiserain/rclone/releases/download/v1.70.3-253/rclone-v1.70.3-253-windows-amd64.zip",
-            "hash": "c69eabdf2df60a58d454016c5461303771cfb30791131ebcd026f7d235484c15",
-            "extract_dir": "rclone-v1.70.3-253-windows-amd64"
+            "url": "https://github.com/wiserain/rclone/releases/download/v1.75.1-332/rclone-v1.75.1-332-windows-amd64.zip",
+            "hash": "867ff782610328c9da01acc6213ed80fd3bb3b9ff878fdae97cd44393c91d674",
+            "extract_dir": "rclone-v1.75.1-332-windows-amd64"
         },
         "32bit": {
-            "url": "https://github.com/wiserain/rclone/releases/download/v1.70.3-253/rclone-v1.70.3-253-windows-386.zip",
-            "hash": "249571747f8d18f031b635268f68782d1446c1912dfc343cc3e1af651cb1ce61",
-            "extract_dir": "rclone-v1.70.3-253-windows-386"
+            "url": "https://github.com/wiserain/rclone/releases/download/v1.75.1-332/rclone-v1.75.1-332-windows-386.zip",
+            "hash": "397ed7590f9787479c86f516485b98b642c51c1d860f60bb6e4df867ee715f43",
+            "extract_dir": "rclone-v1.75.1-332-windows-386"
         },
         "arm64": {
-            "url": "https://github.com/wiserain/rclone/releases/download/v1.70.3-253/rclone-v1.70.3-253-windows-arm64.zip",
-            "hash": "477dafebe92a2fc26314af60280738f428d9faf9a8c9c5414401b1d490367250",
-            "extract_dir": "rclone-v1.70.3-253-windows-arm64"
+            "url": "https://github.com/wiserain/rclone/releases/download/v1.75.1-332/rclone-v1.75.1-332-windows-arm64.zip",
+            "hash": "c05dac742cac7b2dc0114e2c8b845a0a22006f6c3d66462a51effc055c95b045",
+            "extract_dir": "rclone-v1.75.1-332-windows-arm64"
         }
     },
     "pre_install": [
