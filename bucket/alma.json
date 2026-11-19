@@ -1,9 +1,9 @@
 {
-    "version": "0.4.864",
+    "version": "0.4.873",
     "description": "A beautiful desktop application that unifies your AI experience. Seamlessly switch between OpenAI, Anthropic, Google Gemini, and custom providers.",
     "homepage": "https://github.com/yetone/alma-releases",
-    "url": "https://github.com/yetone/alma-releases/releases/download/v0.4.864/alma-0.4.864-win-x64.exe#/dl.7z",
-    "hash": "10bc405d76dc0ec4aa8eba50340f587aa93c4b93cafd86d35231de9be2e95b06",
+    "url": "https://github.com/yetone/alma-releases/releases/download/v0.4.873/alma-0.4.873-win-x64.exe#/dl.7z",
+    "hash": "18912908ec206f0cae94a57b9781da089bd8cf210d7985702acf8183efd2264a",
     "shortcuts": [
         [
             "Alma.exe",
